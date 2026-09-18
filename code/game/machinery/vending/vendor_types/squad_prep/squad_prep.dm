@@ -594,7 +594,7 @@
 		list("M3 Pattern Kneepads", round(scale * 10), /obj/item/clothing/accessory/pads/kneepads/standard, VENDOR_ITEM_REGULAR),
 
 		list("BACKPACK", -1, null, null, null),
-		list("Lightweight IMP Backpack", round(scale * 15), /obj/item/storage/backpack/marine/standard/imp, VENDOR_ITEM_REGULAR),
+		list("Lightweight IMP Backpack", round(scale * 15), /obj/item/storage/backpack/marine/imp, VENDOR_ITEM_REGULAR),
 		list("USCM Satchel", round(scale * 15), /obj/item/storage/backpack/marine/satchel, VENDOR_ITEM_REGULAR),
 		list("USCM Technical Satchel", floor(scale * 15), /obj/item/storage/backpack/marine/satchel/tech, VENDOR_ITEM_REGULAR),
 

@@ -605,24 +605,24 @@
 	to_chat(user, SPAN_NOTICE("You unpack the gas mask."))
 
 /obj/item/clothing/accessory/rmcpacked
-    name = "Packed l7 gasmask"
-    desc = "Packed gas mask, can be strapped into armor."
-    icon_state = "rmcgas_packed"
-    icon_state = "rmcgas_packed"
-    w_class = SIZE_SMALL
-    slot = ACCESSORY_SLOT_GASMASK
+	name = "Packed l7 gasmask"
+	desc = "Packed gas mask, can be strapped into armor."
+	icon_state = "rmcgas_packed"
+	icon_state = "rmcgas_packed"
+	w_class = SIZE_SMALL
+	slot = ACCESSORY_SLOT_GASMASK
 
 /obj/item/clothing/accessory/rmcpacked/attack_self(mob/user)
-    if(user.get_active_hand() != src)
-        return ..()
+	if(user.get_active_hand() != src)
+		return ..()
 
-    var/obj/item/clothing/mask/gas/pmc/royal_marine/M = new(get_turf(user))
-    user.temp_drop_inv_item(src)
-    qdel(src)
-    user.put_in_active_hand(M)
+	var/obj/item/clothing/mask/gas/pmc/royal_marine/M = new(get_turf(user))
+	user.temp_drop_inv_item(src)
+	qdel(src)
+	user.put_in_active_hand(M)
 
-    playsound(user, 'sound/handling/armorequip_2.ogg', 25, TRUE)
-    to_chat(user, SPAN_NOTICE("You unpack the L7 gasmask."))
+	playsound(user, 'sound/handling/armorequip_2.ogg', 25, TRUE)
+	to_chat(user, SPAN_NOTICE("You unpack the L7 gasmask."))
 
 /obj/item/clothing/accessory/pmcpacked
 
@@ -633,35 +633,35 @@
 	slot = ACCESSORY_SLOT_GASMASK
 
 /obj/item/clothing/accessory/pmcpacked/attack_self(mob/user)
-    if(user.get_active_hand() != src)
-        return ..()
+	if(user.get_active_hand() != src)
+		return ..()
 
-    var/obj/item/clothing/mask/gas/pmc/M = new(get_turf(user))
-    user.temp_drop_inv_item(src)
-    qdel(src)
-    user.put_in_active_hand(M)
+	var/obj/item/clothing/mask/gas/pmc/M = new(get_turf(user))
+	user.temp_drop_inv_item(src)
+	qdel(src)
+	user.put_in_active_hand(M)
 
-    playsound(user, 'sound/handling/armorequip_2.ogg', 25, TRUE)
-    to_chat(user, SPAN_NOTICE("You unpack the tactical filtration mask."))
+	playsound(user, 'sound/handling/armorequip_2.ogg', 25, TRUE)
+	to_chat(user, SPAN_NOTICE("You unpack the tactical filtration mask."))
 
 /obj/item/clothing/accessory/pfbpacked
-    name = "Packed pfb gasmask"
-    desc = "Packed gas mask, can be strapped into armor."
-    icon_state = "pfb_packed"
-    w_class = SIZE_SMALL
-    slot = ACCESSORY_SLOT_GASMASK
+	name = "Packed pfb gasmask"
+	desc = "Packed gas mask, can be strapped into armor."
+	icon_state = "pfb_packed"
+	w_class = SIZE_SMALL
+	slot = ACCESSORY_SLOT_GASMASK
 
 /obj/item/clothing/accessory/pfbpacked/attack_self(mob/user)
-    if(user.get_active_hand() != src)
-        return ..()
+	if(user.get_active_hand() != src)
+		return ..()
 
-    var/obj/item/clothing/mask/gas/upp_pfb/M = new(get_turf(user))
-    user.temp_drop_inv_item(src)
-    qdel(src)
-    user.put_in_active_hand(M)
+	var/obj/item/clothing/mask/gas/military/upp/M = new(get_turf(user))
+	user.temp_drop_inv_item(src)
+	qdel(src)
+	user.put_in_active_hand(M)
 
-    playsound(user, 'sound/handling/armorequip_2.ogg', 25, TRUE)
-    to_chat(user, SPAN_NOTICE("You unpack the ShMB/4 gasmask."))
+	playsound(user, 'sound/handling/armorequip_2.ogg', 25, TRUE)
+	to_chat(user, SPAN_NOTICE("You unpack the ShMB/4 gasmask."))
 
 /obj/item/clothing/accessory/poncho
 	name = "USCM Poncho"
@@ -1619,7 +1619,6 @@
 	slot = ACCESSORY_SLOT_DECORGROIN
 	flags_atom = NO_SNOW_TYPE
 
-
 //===========================//USASF CUSTOM ARMOR PLATES\\================================\\
 
 /obj/item/clothing/accessory/pads/navy
@@ -1791,7 +1790,6 @@
 	if(!(flags_atom & NO_SNOW_TYPE))
 		select_gamemode_skin(type)
 	update_icon()
-
 
 /obj/item/storage/internal/accessory/webbing/m3generic
 	cant_hold = list(

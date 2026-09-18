@@ -1,4 +1,3 @@
-
 /obj/item/clothing/mask/gas
 	name = "gas mask"
 	desc = "A civilian grade, face-covering mask that can be connected to an air supply. Filters harmful gases from the air."
@@ -114,24 +113,24 @@
 	// SS220 EDIT - END
 
 /obj/item/clothing/mask/gas/military/upp
-    name = "\improper ShMB/4 gasmask"
-    desc = "The standard issue gasmask utilized by the UPP Armed Collective and many UPP civilian organizations."
-    icon_state = "pfb"
-    item_state = "pfb"
-    flags_atom = NO_NAME_OVERRIDE|NO_SNOW_TYPE
-    flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
+	name = "\improper ShMB/4 gasmask"
+	desc = "The standard issue gasmask utilized by the UPP Armed Collective and many UPP civilian organizations."
+	icon_state = "pfb"
+	item_state = "pfb"
+	flags_atom = NO_NAME_OVERRIDE|NO_SNOW_TYPE
+	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
 
 /obj/item/clothing/mask/gas/military/upp/attack_self(mob/user)
-    if(user.get_active_hand() != src)
-        return ..()
+	if(user.get_active_hand() != src)
+		return ..()
 
-    var/obj/item/clothing/accessory/pfbpacked/P = new(get_turf(user))
-    user.temp_drop_inv_item(src)
-    qdel(src)
-    user.put_in_active_hand(P)
+	var/obj/item/clothing/accessory/pfbpacked/P = new(get_turf(user))
+	user.temp_drop_inv_item(src)
+	qdel(src)
+	user.put_in_active_hand(P)
 
-    playsound(user, 'sound/handling/armorequip_2.ogg', 25, TRUE)
-    to_chat(user, SPAN_NOTICE("You fold and pack the ShMB/4 gasmask."))
+	playsound(user, 'sound/handling/armorequip_2.ogg', 25, TRUE)
+	to_chat(user, SPAN_NOTICE("You fold and pack the ShMB/4 gasmask."))
 
 /obj/item/clothing/mask/gas/pve_mopp
 	name = "\improper M2 MOPP mask"
@@ -166,16 +165,16 @@
 	flags_equip_slot = SLOT_FACE
 
 /obj/item/clothing/mask/gas/pmc/attack_self(mob/user)
-    if(user.get_active_hand() != src)
-        return ..()
+	if(user.get_active_hand() != src)
+		return ..()
 
-    var/obj/item/clothing/accessory/pmcpacked/P = new(get_turf(user))
-    user.temp_drop_inv_item(src)
-    qdel(src)
-    user.put_in_active_hand(P)
+	var/obj/item/clothing/accessory/pmcpacked/P = new(get_turf(user))
+	user.temp_drop_inv_item(src)
+	qdel(src)
+	user.put_in_active_hand(P)
 
-    playsound(user, 'sound/handling/armorequip_2.ogg', 25, TRUE)
-    to_chat(user, SPAN_NOTICE("You fold and pack the tactical filtration mask."))
+	playsound(user, 'sound/handling/armorequip_2.ogg', 25, TRUE)
+	to_chat(user, SPAN_NOTICE("You fold and pack the tactical filtration mask."))
 
 /obj/item/clothing/mask/gas/pmc/balaclava
 	name = "\improper M7 pattern armored balaclava"
@@ -288,24 +287,24 @@
 	flags_inventory = CANTSTRIP|COVEREYES|COVERMOUTH|ALLOWINTERNALS|ALLOWREBREATH|BLOCKGASEFFECT|ALLOWCPR|BLOCKSHARPOBJ
 //=ROYAL MARINES=\\
 
-name = "\improper L7 gasmask"
-    desc = "The L7 Gasmask used by members of the three world empires royal marines commando."
-    icon_state = "rmc_mask"
-    flags_atom = NO_NAME_OVERRIDE|NO_SNOW_TYPE
-    flags_inventory = COVERMOUTH|COVEREYES|ALLOWINTERNALS|BLOCKGASEFFECT|ALLOWREBREATH|ALLOWCPR
-    flags_atom = NO_NAME_OVERRIDE|NO_SNOW_TYPE
+/obj/item/clothing/mask/gas/pmc/royal_marine
+	name = "\improper L7 gasmask"
+	desc = "The L7 Gasmask used by members of the three world empires royal marines commando."
+	icon_state = "rmc_mask"
+	flags_atom = NO_NAME_OVERRIDE|NO_SNOW_TYPE
+	flags_inventory = COVERMOUTH|COVEREYES|ALLOWINTERNALS|BLOCKGASEFFECT|ALLOWREBREATH|ALLOWCPR
 
 /obj/item/clothing/mask/gas/pmc/royal_marine/attack_self(mob/user)
-    if(user.get_active_hand() != src)
-        return ..()
+	if(user.get_active_hand() != src)
+		return ..()
 
-    var/obj/item/clothing/accessory/rmcpacked/P = new(get_turf(user))
-    user.temp_drop_inv_item(src)
-    qdel(src)
-    user.put_in_active_hand(P)
+	var/obj/item/clothing/accessory/rmcpacked/P = new(get_turf(user))
+	user.temp_drop_inv_item(src)
+	qdel(src)
+	user.put_in_active_hand(P)
 
-    playsound(user, 'sound/handling/armorequip_2.ogg', 25, TRUE)
-    to_chat(user, SPAN_NOTICE("You fold and pack the L7 gasmask."))
+	playsound(user, 'sound/handling/armorequip_2.ogg', 25, TRUE)
+	to_chat(user, SPAN_NOTICE("You fold and pack the L7 gasmask."))
 
 //--FIL--\\
 

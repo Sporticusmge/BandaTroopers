@@ -479,7 +479,7 @@ GLOBAL_LIST_INIT(slot_to_contained_sprite_shorthand, list(
 #define ACCESSORY_SLOT_SGPAINT "SG Paint"
 #define ACCESSORY_SLOT_PAINT "Paint"
 #define ACCESSORY_SLOT_M3UTILITY "M3 Utility"
-#define ACCESSORY_SLOT_PLATE "USCM plate"
+#define ACCESSORY_SLOT_PLATE "M3 plate"
 #define ACCESSORY_SLOT_PLATE2 "TWE plate"
 #define ACCESSORY_SLOT_PLATE3 "UPP plate"
 #define ACCESSORY_SLOT_GASMASK "Gasmask"
