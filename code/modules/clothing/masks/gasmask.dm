@@ -22,8 +22,6 @@
 	armor_internaldamage = CLOTHING_ARMOR_NONE
 	siemens_coefficient = 0.9
 	// SS220 EDIT - START: CM-PVE #1287 Gas Mask Vision — gas masks impair vision, store/restore on helmet
-	vision_impair = VISION_IMPAIR_HIGH
-	var/vision_impair_on_store = VISION_IMPAIR_NONE
 	var/ignore_zoom_tint_on_store = FALSE
 	// SS220 EDIT - END
 	var/gas_filter_strength = 1 //For gas mask filters
@@ -42,6 +40,8 @@
 	item_state = "m5"
 	flags_obj = OBJ_NO_HELMET_BAND|OBJ_IS_HELMET_GARB
 	flags_inv_hide = HIDEEARS|HIDEFACE|HIDEALLHAIR
+	vision_impair = VISION_IMPAIR_NONE
+	ignore_zoom_tint = TRUE
 
 /obj/item/clothing/mask/gas/military/on_enter_storage(obj/item/storage/internal/helmet_internal_inventory)
 	..()
@@ -113,7 +113,6 @@
 	icon_state = "pmc_mask"
 	anti_hug = 3
 	// SS220 EDIT: CM-PVE #1287 Gas Mask Vision — PMC mask has weak impair, allows scopes
-	vision_impair = VISION_IMPAIR_WEAK
 	ignore_zoom_tint = TRUE
 	armor_melee = CLOTHING_ARMOR_LOW
 	armor_bullet = CLOTHING_ARMOR_NONE
@@ -246,7 +245,7 @@
 	flags_atom = NO_NAME_OVERRIDE|NO_SNOW_TYPE
 	flags_inventory = COVERMOUTH|COVEREYES|ALLOWINTERNALS|BLOCKGASEFFECT|ALLOWREBREATH|ALLOWCPR
 	// SS220 EDIT: CM-PVE #1287 Gas Mask Vision — RMC mask has medium impair, allows scopes
-	vision_impair = VISION_IMPAIR_MED
+	vision_impair = VISION_IMPAIR_NONE
 	ignore_zoom_tint = TRUE
 
 //--FIL--\\
