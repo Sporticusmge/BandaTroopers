@@ -2273,6 +2273,7 @@ GLOBAL_LIST_INIT(bgstate_options, list(
 	character.gender = gender
 	character.skin_color = skin_color
 	character.body_type = body_type
+	character.apply_body_type_skill_bonuses()
 	character.body_size = body_size
 	character.blood_type = blood_type
 
@@ -2355,6 +2356,7 @@ GLOBAL_LIST_INIT(bgstate_options, list(
 	character.gender = gender
 	character.skin_color = skin_color
 	character.body_type = body_type
+	character.apply_body_type_skill_bonuses()
 	character.body_size = body_size
 	character.blood_type = blood_type
 
