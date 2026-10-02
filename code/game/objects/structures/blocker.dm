@@ -145,3 +145,9 @@ GLOBAL_VAR_INIT(vehicle_blockers, TRUE)
 	name = "directional blocker"
 	icon_state = "invisible_wall_directional"
 	flags_atom = ON_BORDER
+
+/obj/structure/blocker/forcefield/xenomorph
+	types = list(/mob/living/carbon/xenomorph)
+	icon_state = "purple_line"
+	opacity = FALSE
+	visible = FALSE
