@@ -321,7 +321,7 @@
 	xeno_affecting = FALSE
 	opacity = FALSE
 	alpha = 75
-	time_to_live = 20
+	time_to_live = 300000
 	stun_chance = 20
 	var/effect_amt //I don't know what this is or what it means but the code throws errors without it and I'm tired
 
