@@ -1789,6 +1789,10 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 		else
 			var/gun_ho_bonus = max(user.skills.get_skill_level(SKILL_GUN_HO) - SKILL_GUN_HO_UNTRAINED, 0) // SS220 EDIT: keep Gun Ho as a linear bonus above the untrained baseline
 			skill_accuracy = user.skills.get_skill_level(SKILL_FIREARMS) + gun_ho_bonus
+			// Начало изменений
+			if(user.m_intent == MOVE_INTENT_COMBAT)
+				skill_accuracy += 1 // Боевая стойка даёт бонус к точности, эквивалентный +1 уровню Firearms
+			// Конец изменений
 		if(skill_accuracy)
 			gun_accuracy_mult += skill_accuracy * HIT_ACCURACY_MULT_TIER_3 // Accuracy mult increase/decrease per level is equal to attaching/removing a red dot sight
 
@@ -1849,7 +1853,12 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 			total_scatter_angle += SCATTER_AMOUNT_TIER_7
 		else
 			var/gun_ho_bonus = max(user.skills.get_skill_level(SKILL_GUN_HO) - SKILL_GUN_HO_UNTRAINED, 0) // SS220 EDIT: keep Gun Ho scatter reduction linear and preserve the untrained baseline
-			total_scatter_angle -= (user.skills.get_skill_level(SKILL_FIREARMS) + gun_ho_bonus) * SCATTER_AMOUNT_TIER_8
+			var/firearms_level = user.skills.get_skill_level(SKILL_FIREARMS) + gun_ho_bonus
+			// Начало изменений
+			if(user.m_intent == MOVE_INTENT_COMBAT)
+				firearms_level += 1 // Боевая стойка даёт бонус к разбросу, эквивалентный +1 уровню Firearms
+			// Конец изменений
+			total_scatter_angle -= firearms_level * SCATTER_AMOUNT_TIER_8
 
 
 	//Not if the gun doesn't scatter at all, or negative scatter.
@@ -1889,7 +1898,12 @@ not all weapons use normal magazines etc. load_into_chamber() itself is designed
 			total_recoil += RECOIL_AMOUNT_TIER_5
 		else
 			var/gun_ho_bonus = max(user.skills.get_skill_level(SKILL_GUN_HO) - SKILL_GUN_HO_UNTRAINED, 0) // SS220 EDIT: keep Gun Ho recoil reduction linear and preserve the untrained baseline
-			total_recoil -= (user.skills.get_skill_level(SKILL_FIREARMS) + gun_ho_bonus) * RECOIL_AMOUNT_TIER_5
+			var/firearms_level = user.skills.get_skill_level(SKILL_FIREARMS) + gun_ho_bonus
+			// Начало изменений
+			if(user.m_intent == MOVE_INTENT_COMBAT)
+				firearms_level += 1 // Боевая стойка даёт бонус к отдаче, эквивалентный +1 уровню Firearms
+			// Конец изменений
+			total_recoil -= firearms_level * RECOIL_AMOUNT_TIER_5
 
 	if(total_recoil > 0 && (ishuman(user) || HAS_TRAIT(user, TRAIT_OPPOSABLE_THUMBS)))
 		if(total_recoil >= 4)

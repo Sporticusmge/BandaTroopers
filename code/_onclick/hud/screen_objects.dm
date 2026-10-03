@@ -365,9 +365,15 @@
 	user.toggle_mov_intent()
 
 /mob/living/proc/set_movement_intent(new_intent)
+	if(m_intent == new_intent)
+		return
 	m_intent = new_intent
 	if(hud_used?.move_intent)
 		hud_used.move_intent.set_movement_intent_icon(m_intent)
+	// Начало изменений
+	if(m_intent == MOVE_INTENT_COMBAT)
+		visible_message(SPAN_NOTICE("[src] enters a combat stance."), SPAN_NOTICE("You enter a combat stance."), null, 5)
+	// Конец изменений
 	recalculate_move_delay = TRUE
 
 /mob/living/proc/toggle_mov_intent()
@@ -379,6 +385,8 @@
 		if(MOVE_INTENT_RUN)
 			set_movement_intent(MOVE_INTENT_WALK)
 		if(MOVE_INTENT_WALK)
+			set_movement_intent(MOVE_INTENT_COMBAT)
+		if(MOVE_INTENT_COMBAT)
 			set_movement_intent(MOVE_INTENT_RUN)
 	return TRUE
 
@@ -388,6 +396,8 @@
 			icon_state = "walking"
 		if(MOVE_INTENT_RUN)
 			icon_state = "running"
+		if(MOVE_INTENT_COMBAT)
+			icon_state = "walking" // TODO: заменить на "combat" когда будет готова иконка
 
 /mob/living/carbon/xenomorph/toggle_mov_intent()
 	. = ..()
