@@ -364,16 +364,30 @@
 		return TRUE
 	user.toggle_mov_intent()
 
+/atom/movable/screen/combat_stance
+	name = "combat stance"
+	icon = 'icons/mob/hud/marine_hud.dmi'
+	icon_state = "hudcombat"
+	screen_loc = "EAST-4:0,SOUTH+3:0"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+/mob/living
+	var/atom/movable/screen/combat_stance/combat_stance_overlay
+
 /mob/living/proc/set_movement_intent(new_intent)
 	if(m_intent == new_intent)
 		return
 	m_intent = new_intent
 	if(hud_used?.move_intent)
 		hud_used.move_intent.set_movement_intent_icon(m_intent)
-	// Начало изменений
 	if(m_intent == MOVE_INTENT_COMBAT)
 		visible_message(SPAN_NOTICE("[src] enters a combat stance."), SPAN_NOTICE("You enter a combat stance."), null, 5)
-	// Конец изменений
+		if(!combat_stance_overlay)
+			combat_stance_overlay = new /atom/movable/screen/combat_stance
+		client?.screen += combat_stance_overlay
+	else
+		if(combat_stance_overlay)
+			client?.screen -= combat_stance_overlay
 	recalculate_move_delay = TRUE
 
 /mob/living/proc/toggle_mov_intent()
@@ -397,7 +411,7 @@
 		if(MOVE_INTENT_RUN)
 			icon_state = "running"
 		if(MOVE_INTENT_COMBAT)
-			icon_state = "walking" // TODO: заменить на "combat" когда будет готова иконка
+			icon_state = "combat"
 
 /mob/living/carbon/xenomorph/toggle_mov_intent()
 	. = ..()
