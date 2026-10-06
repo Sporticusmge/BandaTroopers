@@ -372,6 +372,9 @@
 		hud_used.move_intent.set_movement_intent_icon(m_intent)
 	if(m_intent == MOVE_INTENT_COMBAT)
 		visible_message(SPAN_NOTICE("[src] enters a combat stance."), SPAN_NOTICE("You enter a combat stance."), null, 5)
+		ADD_TRAIT(src, TRAIT_COMBAT_STANCE, "combat_stance")
+	else
+		REMOVE_TRAIT(src, TRAIT_COMBAT_STANCE, "combat_stance")
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
 		H.hud_set_combat_stance()
