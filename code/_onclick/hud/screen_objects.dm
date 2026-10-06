@@ -1,6 +1,6 @@
 /*
 	Screen objects
-	Todo: improve/re-implement
+	Todo: improve/reimplement
 
 	Screen objects are only used for the hud and should not appear anywhere "in-game".
 	They are used with the client/screen list and the screen_loc var.
@@ -364,16 +364,6 @@
 		return TRUE
 	user.toggle_mov_intent()
 
-/atom/movable/screen/combat_stance
-	name = "combat stance"
-	icon = 'icons/mob/hud/marine_hud.dmi'
-	icon_state = "hudcombat"
-	screen_loc = "EAST-4:0,SOUTH+3:0"
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-
-/mob/living
-	var/atom/movable/screen/combat_stance/combat_stance_overlay
-
 /mob/living/proc/set_movement_intent(new_intent)
 	if(m_intent == new_intent)
 		return
@@ -382,12 +372,9 @@
 		hud_used.move_intent.set_movement_intent_icon(m_intent)
 	if(m_intent == MOVE_INTENT_COMBAT)
 		visible_message(SPAN_NOTICE("[src] enters a combat stance."), SPAN_NOTICE("You enter a combat stance."), null, 5)
-		if(!combat_stance_overlay)
-			combat_stance_overlay = new /atom/movable/screen/combat_stance
-		client?.screen += combat_stance_overlay
-	else
-		if(combat_stance_overlay)
-			client?.screen -= combat_stance_overlay
+	if(ishuman(src))
+		var/mob/living/carbon/human/H = src
+		H.hud_set_combat_stance()
 	recalculate_move_delay = TRUE
 
 /mob/living/proc/toggle_mov_intent()
