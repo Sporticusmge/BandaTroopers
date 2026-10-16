@@ -496,7 +496,6 @@ GLOBAL_LIST_INIT(slot_to_contained_sprite_shorthand, list(
 #define ACCESSORY_SLOT_ARMOR_M "Misc armor"
 #define ACCESSORY_SLOT_HELM_C "Helmet cover"
 
-// IMP backpack accessory slots
 #define IMP_SLOT_ETOOL   "imp_etool"
 #define IMP_SLOT_BEDROLL "imp_bedroll"
 #define IMP_SLOT_SADAR   "imp_sadar"

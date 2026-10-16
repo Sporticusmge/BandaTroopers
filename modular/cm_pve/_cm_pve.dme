@@ -20,3 +20,9 @@
 
 // Vehicles — Heavy Autocannon
 #include "code/modules/vehicles/hardpoints/hardpoint_ammo/heavy_autocannon.dm"
+
+#include "code/upp_forecon/weapons.dm"
+#include "code/upp_forecon/equipment.dm"
+#include "code/upp_forecon/presets.dm"
+#include "code/upp_forecon/vendors.dm"
+#include "code/upp_airborne/ak82.dm"

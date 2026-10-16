@@ -1,23 +1,19 @@
-//lv522 AREAS--------------------------------------//
-
 /area/lv522_l_l
 	icon_state = "lv-626"
 	can_build_special = TRUE
 	powernet_name = "LV522_Lukes_Landing"
 	minimap_color = MINIMAP_AREA_COLONY
 
-//parent types
-
 /area/lv522_l_l/indoors
 	name = "Lukes Landing - Indoors"
-	icon_state = "cliff_blocked" //because this is a PARENT TYPE and you should not be using it and should also be changing the icon!!!
+	icon_state = "cliff_blocked"
 	ceiling = CEILING_METAL
 	soundscape_playlist = SCAPE_PL_LV522_INDOORS
 
 
 /area/lv522_l_l/outdoors
 	name = "Lukes Landing - Outdoors"
-	icon_state = "cliff_blocked" //because this is a PARENT TYPE and you should not be using it and should also be changing the icon!!!
+	icon_state = "cliff_blocked"
 	ceiling = CEILING_NONE
 	soundscape_playlist = SCAPE_PL_LV522_OUTDOORS
 
@@ -26,8 +22,6 @@
 	icon_state = "cliff_blocked"
 	ceiling = CEILING_REINFORCED_METAL
 	powernet_name = "LV522_LL_Colony Underground"
-
-//Colony
 
 /area/lv522_l_l/indoors/corporate
 	name = "A Block - Corporate"
@@ -73,8 +67,6 @@
 	name = "LV522 Lukes Landing - Colony Outskirts - Mining"
 	icon_state = "blue"
 
-//Colony Outside
-
 /area/lv522_l_l/outdoors/engineering
 	name = "Outdoors - Engineering Storehouse"
 	icon_state = "mechbay"
@@ -92,13 +84,9 @@
 	name = "LV522 Colony Outskirts - Mining"
 	icon_state = "blue"
 
-//colony outskirts
-
 /area/lv522_l_l/outdoors/colony_outskirts
 	name = "LV522 - Barrens"
 	icon_state = "west"
-
-//Basement
 
 /area/lv522_l_l/basement/colony
 	name = "Lukes Landing - Colony Sublevel"

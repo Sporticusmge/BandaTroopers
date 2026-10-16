@@ -2296,7 +2296,6 @@
 /turf/open/floor/prison/floor_marked,
 /area/lv522/indoors/a_block/security)
 "afj" = (
-/obj/structure/window/framed/strata/hull,
 /turf/closed/wall/strata_outpost/reinforced/hull,
 /area/lv522/indoors/a_block/medical)
 "afk" = (
@@ -28710,9 +28709,6 @@
 	},
 /obj/structure/prop/invuln/darkness,
 /obj/structure/prop/invuln/prop_fog/smoke,
-/obj/structure/platform/kutjevo/smooth{
-	dir = 1
-	},
 /obj/structure/platform/kutjevo/smooth{
 	dir = 1
 	},

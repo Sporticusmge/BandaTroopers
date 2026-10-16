@@ -310,7 +310,6 @@
 ///The Zombie specifc multiplier to damage when calculating organ damage probability
 #define ZOMBIE_ORGAN_DAM_PROB_MULT 0.5
 
-// Armor level progression helpers
 /proc/get_next_armor_level(current_value)
 	var/static/list/armor_levels = list(
 		CLOTHING_ARMOR_NONE,

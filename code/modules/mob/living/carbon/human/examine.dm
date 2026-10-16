@@ -77,7 +77,7 @@
 	var/rank_display = get_paygrades(id_paygrade, FALSE, gender)
 	var/msg = "<span class='info'>\nThis is "
 
-	if(skipjumpsuit && skipface || gender == PLURAL) //big suits/masks/helmets make it hard to tell their gender
+	if(skipjumpsuit && skipface || gender == PLURAL)
 		t_He = "They"
 		t_his = "their"
 		t_him = "them"
@@ -206,7 +206,6 @@
 	if(wear_id)
 		msg += "[t_He] [t_is] [wear_id.get_examine_location(src, user, WEAR_ID, t_He, t_his, t_him, t_has, t_is)].\n"
 
-	//Inform user if their weapon's IFF will or won't hit src, code by The32bitguy from PVE
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_with_gun = user
 		if(istype(human_with_gun.r_hand, /obj/item/weapon/gun) || istype(human_with_gun.l_hand, /obj/item/weapon/gun))
@@ -286,7 +285,7 @@
 			user.visible_message("[SPAN_BOLD("[user]")] checks [src]'s pulse.", "You check [src]'s pulse.", null, 4)
 		spawn(15)
 			if(user && src && distance <= 1)
-				get_pulse(GETPULSE_HAND) // to update it
+				get_pulse(GETPULSE_HAND)
 				if(pulse == PULSE_NONE || status_flags & FAKEDEATH)
 					to_chat(user, SPAN_DEADSAY("[t_He] [t_has] no pulse[client ? "" : " and [t_his] soul has departed"]..."))
 				else

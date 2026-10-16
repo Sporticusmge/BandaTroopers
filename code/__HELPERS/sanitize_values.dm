@@ -68,7 +68,7 @@
 		return blood_type
 
 	return default
-	
+
 /proc/sanitize_hexcolor(color, default="#000000")
 	if(!istext(color)) return default
 	var/len = length(color)

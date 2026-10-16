@@ -1214,11 +1214,11 @@
 	layer = 6
 	density = 0
 
-/obj/structure/prop/invuln/prop_fog //scary fog effect for cool scary places pick from these 3 see what works better for ur area
+/obj/structure/prop/invuln/prop_fog
 	name = "Fog Prop"
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "smoke"
-	layer = 6 //above marines and other stuff
+	layer = 6
 	density = 0
 	mouse_opacity = 0
 	opacity = 0

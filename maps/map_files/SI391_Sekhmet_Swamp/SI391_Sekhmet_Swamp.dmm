@@ -26110,9 +26110,6 @@
 /obj/structure/stairs/perspective/kutjevo{
 	dir = 1
 	},
-/obj/structure/stairs/perspective/kutjevo{
-	dir = 1
-	},
 /turf/closed/shuttle/elevator{
 	dir = 9;
 	explo_proof = 1;
