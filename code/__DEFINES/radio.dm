@@ -86,3 +86,7 @@
 
 #define RADIO_CHANNEL_YAUTJA "Yautja"
 
+//Lasalle Bionational Comms
+
+#define RADIO_CHANNEL_LASALLE_BIONATIONAL "Lasalle Bionational"
+

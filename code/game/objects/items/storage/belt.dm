@@ -2041,7 +2041,9 @@
 		/obj/item/ammo_magazine/pistol/t73_impact,
 		/obj/item/weapon/gun/pistol/np92,
 		/obj/item/ammo_magazine/pistol/np92,
-		/obj/item/ammo_magazine/pistol/np92/tranq,
+		// SS220 EDIT - START
+		/obj/item/ammo_magazine/pistol/np92/suppressed/tranq,
+		// SS220 EDIT - END
 		/obj/item/weapon/gun/revolver/upp,
 		/obj/item/ammo_magazine/revolver/upp,
 		/obj/item/ammo_magazine/revolver/upp/shrapnel,
@@ -2664,3 +2666,28 @@
 	new /obj/item/storage/box/packet/rmc/mini/holo(src)
 
 #undef MAXIMUM_MORTARSHELL_COUNT
+/obj/item/storage/belt/marine/wy/generic
+	name = "\improper TM401 pattern ammo load rig"
+	desc = "A slightly outdated rig, by modern standards - The TM401 is the standard load-bearing equipment of various corporate & military forces. It consists of a modular belt with various clips. This is the standard variant, designed for bulk ammunition-carrying operations."
+
+/obj/item/storage/belt/medical/lifesaver/wy/lb_merc
+	name = "\improper LB-TM624 pattern medical bag"
+	desc = "The LB-TM624 is the standard load-bearing equipment of the L-B security forces. This configuration mounts a duffel bag filled with a range of injectors and light medical supplies, and is common among medics. \nRight click its sprite and click \"toggle belt mode\" to take pills out of bottles by simply clicking them."
+
+/obj/item/storage/belt/gun/m4a3/wy/lb_merc
+	name = "\improper LB-TM891 pattern general pistol holster rig"
+	desc = "The LB-TM891 is the standard load-bearing equipment of the L-B security forces. It consists of a modular belt with various clips. This version has a holster assembly that allows one to carry the most common pistols. It also contains side pouches that can store most pistol magazines."
+
+/obj/item/storage/belt/gun/m4a3/wy/lb_merc/b92fs_suppressed/fill_preset_inventory()
+	handle_item_insertion(new /obj/item/weapon/gun/pistol/b92fs/suppressed())
+	for(var/i = 1 to storage_slots - 1)
+		new /obj/item/ammo_magazine/pistol/b92fs(src)
+
+/obj/item/storage/belt/gun/m4a3/wy/lb_merc/b92fs_suppressed_near_empty/fill_preset_inventory()
+	handle_item_insertion(new /obj/item/weapon/gun/pistol/b92fs/suppressed())
+	for(var/i = 1 to 3)
+		new /obj/item/ammo_magazine/pistol/b92fs(src)
+
+/obj/item/storage/belt/marine/wy/generic/w_ek_17/fill_preset_inventory() // W/EK 17 Carbine
+	for(var/i = 1 to storage_slots)
+		new /obj/item/ammo_magazine/rifle/w_ek_17 (src)

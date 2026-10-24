@@ -462,3 +462,14 @@
 /turf/closed/shuttle/dropship2/WY/transparent
 	icon = 'icons/turf/dropship5.dmi'
 	opacity = FALSE
+
+/turf/closed/shuttle/ert/transparent
+	opacity = FALSE
+
+/turf/closed/shuttle/dropship_lb
+	name = "\improper UD2-LB 'Remedy'"
+	icon = 'icons/turf/dropship_lb.dmi'
+	icon_state = "0,0"
+
+/turf/closed/shuttle/dropship_lb/transparent
+	opacity = FALSE

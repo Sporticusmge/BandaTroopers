@@ -326,3 +326,5 @@
 	desc = "A heavy fuel tank of Ultra Thick Napthal Fuel type EX, a sticky combustible liquid chemical that burns so hot it melts straight through most flame-resistant materials, utilized by the Flammenwerfer 3 Heavy Incineration Unit. This has a blue, heat-resistant Weyland-Yutani logo on it. Handle with care."
 	caliber = "Napalm EX"
 	flamer_chem = "napalmex"
+/obj/item/ammo_magazine/flamer_tank/survivor/update_icon()
+	overlays.Cut() // No reagent stripe sprite for the improvised tank

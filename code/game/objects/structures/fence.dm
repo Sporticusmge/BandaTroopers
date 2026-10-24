@@ -15,6 +15,10 @@
 	var/junction = 0 //Because everything is terrible, I'm making this a fence-level var
 	var/basestate = "fence"
 	var/forms_junctions = TRUE
+	var/door = FALSE
+	var/open = FALSE
+	var/operating = FALSE
+	var/opening_time = 1 SECONDS
 
 /obj/structure/fence/initialize_pass_flags(datum/pass_flags_container/PF)
 	..()
@@ -72,6 +76,21 @@
 		var/mob/living/carbon/human/human = user
 		if(human.species.can_shred(human))
 			attack_generic(human, 25)
+
+	if(!door || operating || cut)
+		return
+	operating = TRUE
+	playsound(loc, 'sound/effects/fenceopen.ogg', 25, 1)
+	update_icon()
+	addtimer(CALLBACK(src, PROC_REF(open)), opening_time)
+
+/obj/structure/fence/proc/open()
+	operating = FALSE
+	if(cut)
+		return
+	open = !open
+	density = !density
+	update_icon()
 
 //Used by attack_animal
 /obj/structure/fence/proc/attack_generic(mob/living/user, damage = 0)
@@ -209,6 +228,8 @@
 
 /obj/structure/fence/Initialize(mapload, start_dir = null, constructed = 0)
 	. = ..()
+	if(door)
+		basestate = "door"
 
 	if(start_dir)
 		setDir(start_dir)
@@ -249,8 +270,22 @@
 				junction |= get_dir(src, fence)
 		if(cut)
 			icon_state = "broken[basestate][junction]"
+			if(!forms_junctions)
+				icon_state = "broken[basestate]"
 		else
-			icon_state = "[basestate][junction]"
+			if(forms_junctions)
+				icon_state = "[basestate][junction]"
+			else
+				icon_state = basestate
+
+		if(cut || !door)
+			return
+
+		if(!operating)
+			icon_state = open ? "[basestate]_open" : "[basestate]_closed"
+			return
+
+		icon_state = open ? "[basestate]_closing" : "[basestate]_opening"
 
 /obj/structure/fence/fire_act(exposed_temperature, exposed_volume)
 	if(exposed_temperature > T0C + 800)
@@ -330,3 +365,45 @@ GLOBAL_LIST_INIT(all_electric_fences, list())
 	name = "fence"
 	desc = "A large metal mesh strewn between two poles. Intended as a cheap way to separate areas, while allowing one to see through it."
 	icon = 'icons/obj/structures/props/fences/electric_fence.dmi'
+
+/obj/structure/fence/slim/blue
+	name = "fence"
+	desc = "A large metal mesh strewn between two poles. Intended as a cheap way to separate areas, while allowing one to see through it."
+	icon = 'icons/obj/structures/props/fences/fence_alt.dmi'
+	color = "#8d93a1ff"
+
+/obj/structure/fence/slim/blue/door
+	name = "fence door"
+	desc = "A sturdy chainlink door set between two metal poles. A cheap way to section off areas while still allowing visibility through it."
+	icon_state = "door_closed"
+	color = "#8d93a1ff"
+	door = TRUE
+	forms_junctions = FALSE
+	icon = 'icons/obj/structures/props/fences/fence_alt_door.dmi'
+
+/obj/structure/prop/fence
+	name = "fence"
+	desc = "A large metal mesh strewn between two poles. Intended as a cheap way to separate areas, while allowing one to see through it."
+	icon_state = "special_brokenfence1"
+	icon = 'icons/obj/structures/props/fences/fence.dmi'
+	density = FALSE
+	layer = WINDOW_LAYER
+	minimap_color = MINIMAP_FENCE
+
+/obj/structure/prop/fence/attackby(obj/item/W, mob/living/user)
+	// Any sufficiently sharp knife/blade destroys instantly
+	if(W.sharp >= IS_SHARP_ITEM_SIMPLE)
+		user.animation_attack_on(src)
+		to_chat(user, SPAN_WARNING("You cut \the [src] with \the [W]."))
+		playsound(src, 'sound/items/Wirecutter.ogg', 25, 1)
+		qdel(src)
+		return ATTACKBY_HINT_UPDATE_NEXT_MOVE
+	else
+		. = ..()
+
+/obj/structure/prop/fence/slim
+	icon = 'icons/obj/structures/props/fences/fence_alt.dmi'
+
+/obj/structure/prop/fence/slim/blue
+	icon = 'icons/obj/structures/props/fences/fence_alt.dmi'
+	color = "#8d93a1ff"

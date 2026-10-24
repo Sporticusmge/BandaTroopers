@@ -135,9 +135,6 @@ endmap
 map lv671
 endmap
 
-map oil_depot
-endmap
-
 map derelict_almayer_infested
 endmap
 
@@ -176,3 +173,6 @@ endmap
 map arctic_valley
 endmap
 # SS220 EDIT - END
+
+map fire_colony
+endmap

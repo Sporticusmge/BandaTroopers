@@ -12,6 +12,7 @@
 
 // Mapping
 #include "code/modules/mapping/bunker_access.dm"
+#include "code/fire_colony/map_types.dm"
 
 // Vehicles — TWE Tank
 #include "code/modules/vehicles/twe_tank/interior.dm"
@@ -20,3 +21,12 @@
 
 // Vehicles — Heavy Autocannon
 #include "code/modules/vehicles/hardpoints/hardpoint_ammo/heavy_autocannon.dm"
+
+#include "code/upp_forecon/weapons.dm"
+#include "code/upp_forecon/equipment.dm"
+#include "code/upp_forecon/presets.dm"
+#include "code/upp_forecon/vendors.dm"
+#include "code/upp_airborne/ak82.dm"
+#if defined(UNIT_TESTS) || defined(SPACEMAN_DMM)
+#include "code/modules/unit_tests/equipment_sprite_routes.dm"
+#endif

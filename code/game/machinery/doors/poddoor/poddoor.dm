@@ -235,3 +235,6 @@
 /obj/structure/machinery/door/poddoor/hybrisa/ultra_reinforced_door/emp_act(power, severity)
 	..()
 	return TRUE
+
+/obj/structure/machinery/door/poddoor/hybrisa/shutters/open
+	density = FALSE

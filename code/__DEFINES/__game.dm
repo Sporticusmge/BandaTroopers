@@ -65,7 +65,6 @@
 #define MAP_PROSPECTOR_CANYON "Prospector Canyon"
 #define MAP_ARCTIC_VALLEY "Arctic Valley"
 #define MAP_LV_671 "LV-671 Ark Borealis"
-#define MAP_OIL_DEPOT "Oil Depot 276"
 #define MAP_DERELICT_ALMAYER_INFESTED "Infested Almayer"
 #define MAP_ONI_SHIELD_BASE "ONI Shieldbase"
 #define MAP_VALOROUS_CHANT "SDV Valorous Chant"
@@ -403,6 +402,8 @@
 #define WALL_SHIVA_FAB_PINK "shiva_fab_pnk"
 #define WALL_SHIVA_FAB_WHITE "shiva_fab_wht"
 #define WALL_SHIVA_FAB_RED "shiva_fab_red"
+#define WALL_SHIVA_FAB_DARK "shiva_fab_dark"
+#define WALL_ENGINEER_RUIN "engineer_stone"
 #define WALL_DOME "dome"
 #define WALL_DOMER "r_dome"
 #define WALL_SOLARIS "solaris_interior"
@@ -600,3 +601,4 @@
 #define DROPSHIP_CAMO_NAVY "Navy"
 #define DROPSHIP_CAMO_URBAN "Urban"
 #define DROPSHIP_CAMO_JUNGLE "Jungle"
+#define MAP_FIRE_COLONY "LV-376 Charon's Crucible"//heavily modified ice colony V2 - low-medium pop

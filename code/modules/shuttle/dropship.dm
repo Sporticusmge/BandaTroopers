@@ -579,3 +579,30 @@
 	desc = "The nose of a TWE produced DAA.4 Nimrod dropship. Contains the AESA radar system and the chin-mounted powered gunpod."
 	icon_state = "101a"
 	opacity = FALSE
+
+/obj/structure/shuttle/part/ert
+	name = "wall"
+	icon = 'icons/turf/ert_shuttle.dmi'
+	icon_state = "stan4"
+	opacity = TRUE
+
+/obj/structure/shuttle/part/ert/ex_act(severity, direction)
+	return FALSE
+
+/obj/structure/shuttle/part/ert/front_left_stan
+	icon_state = "stan20"
+
+/obj/structure/shuttle/part/ert/front_right_stan
+	icon_state = "stan25"
+
+/obj/structure/shuttle/part/dropship_lb
+	name = "\improper UD2-LB 'Remedy'"
+	icon = 'icons/turf/dropship_lb.dmi'
+	icon_state = "0,0"
+	opacity = TRUE
+
+/obj/structure/shuttle/part/dropship_lb/ex_act(severity, direction)
+	return FALSE
+
+/obj/structure/shuttle/part/dropship_lb/transparent
+	opacity = FALSE

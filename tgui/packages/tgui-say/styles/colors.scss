@@ -52,6 +52,7 @@ $jsc: #8b3434;
 $yautja: #1ecc44;
 $provost: #9d0612;
 $fil: #17620b;
+$lasalle: #47a0bc;
 
 $_channel_map: (
   'say': $say,
@@ -109,6 +110,7 @@ $_channel_map: (
   'pfa': $pfa,
   'jsc': $jsc,
   'mercs': $security,
+  'lasalle': $lasalle,
 );
 
 $channel_keys: map.keys($_channel_map) !default;

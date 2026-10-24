@@ -242,9 +242,17 @@
 						/obj/item/clothing/glasses/mgoggles/orange/prescription = HAT_GARB_RELAY_ICON_STATE,
 						/obj/item/clothing/glasses/mgoggles/green = HAT_GARB_RELAY_ICON_STATE,
 						/obj/item/clothing/glasses/mgoggles/green/prescription = HAT_GARB_RELAY_ICON_STATE,
+						// SS220 EDIT - START
+						/obj/item/clothing/glasses/mgoggles/upp = HAT_GARB_RELAY_ICON_STATE,
+						/obj/item/clothing/glasses/mgoggles/upp/prescription = HAT_GARB_RELAY_ICON_STATE,
+						// SS220 EDIT - END
 						/obj/item/prop/helmetgarb/helmet_nvg = HAT_GARB_RELAY_ICON_STATE,
 						/obj/item/prop/helmetgarb/helmet_nvg/cosmetic = HAT_GARB_RELAY_ICON_STATE,
 						/obj/item/prop/helmetgarb/helmet_nvg/marsoc = HAT_GARB_RELAY_ICON_STATE,
+						// SS220 EDIT - START
+						/obj/item/prop/helmetgarb/helmet_nvg/upp = HAT_GARB_RELAY_ICON_STATE,
+						/obj/item/prop/helmetgarb/helmet_nvg/upp/frogmen = HAT_GARB_RELAY_ICON_STATE,
+						// SS220 EDIT - END
 						/obj/item/clothing/head/headband = "hat_headbandgreen",
 						/obj/item/clothing/head/headband/tan = "hat_headbandtan",
 						/obj/item/clothing/head/headband/red = "hat_headbandred",
@@ -957,3 +965,25 @@
 		WEAR_HEAD = 'modular/halo/icons/halo/mob/humans/onmob/clothing/hats/hats_by_faction/hat_unsc.dmi'
 	)
 // SS220 EDIT - END
+
+/obj/item/clothing/head/science_coif
+	name = "sterile coif"
+	desc = "A close-fitting sterile head covering, protecting the wearer from hazardous materials, intended for laboratory and cleanroom environments."
+	icon = 'icons/obj/items/clothing/hats/hats.dmi'
+	icon_state = "scientist_coif"
+	blood_overlay_type = "surgcap"
+	icon = 'icons/obj/items/clothing/hats/hats_by_faction/LASALLE.dmi'
+	item_icons = list(
+		WEAR_HEAD = 'icons/mob/humans/onmob/clothing/head/hats_by_faction/LASALLE.dmi'
+	)
+
+	flags_inv_hide = HIDEALLHAIR
+
+/obj/item/clothing/head/science_coif/blue
+	icon_state = "scientist_coif_blue"
+
+/obj/item/clothing/head/science_coif/purple
+	icon_state = "scientist_coif_purple"
+
+/obj/item/clothing/head/science_coif/green
+	icon_state = "scientist_coif_green"

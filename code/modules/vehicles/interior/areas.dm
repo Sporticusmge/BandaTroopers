@@ -112,3 +112,7 @@
 	name = "\improper интерьер командного БТР TWE"
 	icon_state = "apc"
 // SS220 EDIT - END
+
+/area/interior/vehicle/rt01
+	name = "RT-01 interior"
+	icon_state = "van"

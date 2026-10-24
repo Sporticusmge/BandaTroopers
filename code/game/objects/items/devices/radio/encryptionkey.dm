@@ -313,7 +313,6 @@
 	icon_state = "wy_key"
 	channels = list(RADIO_CHANNEL_WY = TRUE)
 	tracking_options = list("Corporate Liaison" = TRACKER_CL)
-
 /obj/item/device/encryptionkey/pmc
 	name = "\improper Weyland-Yutani PMC Radio Encryption Key"
 	icon_state = "pmc_key"
@@ -500,3 +499,11 @@
 	name = "\improper French FIL Radio Encryption Key"
 	icon_state = "stripped_key"
 	channels = list(RADIO_CHANNEL_FIL = TRUE, RADIO_CHANNEL_COLONY = TRUE)
+//---------------------------------------------------
+//Lasalle Bionational Keys
+
+/obj/item/device/encryptionkey/lasalle_bionational
+	name = "\improper Lasalle Bionational encryption key"
+	icon_state = "ce_key"
+	channels = list(RADIO_CHANNEL_LASALLE_BIONATIONAL = TRUE)
+	tracking_options = list("Corporate Liaison" = TRACKER_CL)

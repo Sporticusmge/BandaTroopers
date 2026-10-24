@@ -1766,29 +1766,37 @@ GLOBAL_LIST_INIT(rebel_ua_pistols, list(
 			uniform.roll_suit_sleeves(new_human)
 	new_human.equip_to_slot_or_del(uniform, WEAR_BODY)
 
+// SS220 EDIT - START
 /datum/equipment_preset/proc/add_canc_rifle(mob/living/carbon/human/new_human)
 	if(!istype(new_human))
 		return
-	var/random_canc_rifle = rand(1,5)
+	var/random_canc_rifle = rand(1,10)
 	switch(random_canc_rifle)
-		if(1, 2, 3)
+		if(1, 2, 3, 4, 5)
 			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/lw317(new_human), WEAR_J_STORE)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/upp, WEAR_WAIST)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lw317, WEAR_IN_BELT)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lw317, WEAR_IN_BELT)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/lw317, WEAR_IN_BELT)
-		if(4)
-			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/mar40/carbine, WEAR_J_STORE)
+		if(6, 7)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/mar40(new_human), WEAR_J_STORE)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/upp, WEAR_WAIST)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mar40, WEAR_IN_BELT)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mar40, WEAR_IN_BELT)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mar40, WEAR_IN_BELT)
-		if(5)
-			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/mar40, WEAR_J_STORE)
+		if(8, 9)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/mar40/carbine(new_human), WEAR_J_STORE)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/upp, WEAR_WAIST)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mar40, WEAR_IN_BELT)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mar40, WEAR_IN_BELT)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mar40, WEAR_IN_BELT)
+		if(10)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/type71/carbine, WEAR_J_STORE)
+			new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/upp, WEAR_WAIST)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, WEAR_IN_BELT)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, WEAR_IN_BELT)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/type71, WEAR_IN_BELT)
+// SS220 EDIT - END
 
 /datum/equipment_preset/proc/add_canc_rifle_pouch(mob/living/carbon/human/new_human)
 	if(!istype(new_human))
@@ -1863,29 +1871,37 @@ GLOBAL_LIST_INIT(rebel_ua_pistols, list(
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/pps43, WEAR_IN_R_STORE)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/pps43, WEAR_IN_R_STORE)
 
+// SS220 EDIT - START
 /datum/equipment_preset/proc/add_canc_rifle_newblood(mob/living/carbon/human/new_human)
 	if(!istype(new_human))
 		return
-	var/random_canc_rifle_newblood = rand(1,11)
+	var/random_canc_rifle_newblood = rand(1,6)
 	switch(random_canc_rifle_newblood)
-		if(1,2,3,4,5)
+		if(1, 2)
 			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/mar40, WEAR_J_STORE)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/upp, WEAR_WAIST)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mar40, WEAR_IN_BELT)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mar40, WEAR_IN_BELT)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mar40, WEAR_IN_BELT)
-		if(6,7,8,9,10)
+		if(3, 4)
 			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/mar40/carbine, WEAR_J_STORE)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/upp, WEAR_WAIST)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mar40, WEAR_IN_BELT)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mar40, WEAR_IN_BELT)
 			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/rifle/mar40, WEAR_IN_BELT)
-		if(11)
-			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/ppsh, WEAR_J_STORE)
+		if(5)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/bizon, WEAR_J_STORE)
 			new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/upp, WEAR_WAIST)
-			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/ppsh, WEAR_IN_BELT)
-			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/ppsh, WEAR_IN_BELT)
-			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/ppsh, WEAR_IN_BELT)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/bizon, WEAR_IN_BELT)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/bizon, WEAR_IN_BELT)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/bizon, WEAR_IN_BELT)
+		if(6)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/pps43, WEAR_J_STORE)
+			new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/upp, WEAR_WAIST)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/pps43, WEAR_IN_BELT)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/pps43, WEAR_IN_BELT)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/pps43, WEAR_IN_BELT)
+// SS220 EDIT - END
 
 /datum/equipment_preset/proc/add_rebel_upp_helmet(mob/living/carbon/human/new_human)
 	if(!istype(new_human))
@@ -1943,3 +1959,89 @@ GLOBAL_LIST_INIT(rebel_ua_pistols, list(
 		/obj/item/clothing/glasses/sunglasses/aviator,
 	)
 	new_human.equip_to_slot_or_del(new helmeteyewearpath, WEAR_IN_HELMET)
+
+/datum/equipment_preset/proc/add_lb_merc_survivor_weapon(mob/living/carbon/human/new_human)
+	var/random_weapon = rand(0,19)
+	switch(random_weapon)
+		if(0 to 4)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/a_m36(new_human), WEAR_J_STORE)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/a_m36(new_human), WEAR_IN_BACK)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/a_m36(new_human), WEAR_IN_BACK)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/a_m36(new_human), WEAR_IN_BACK)
+		if(5 to 9)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/a_m36(new_human), WEAR_J_STORE)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/a_m36(new_human), WEAR_IN_BACK)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/a_m36(new_human), WEAR_IN_BACK)
+		if(10 to 13)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/a_m36(new_human), WEAR_J_STORE)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/a_m36(new_human), WEAR_IN_BACK)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/a_m36(new_human), WEAR_IN_BACK)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/a_m36(new_human), WEAR_IN_BACK)
+		if(14 to 17)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/a_m36(new_human), WEAR_J_STORE)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/a_m36(new_human), WEAR_IN_BACK)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/smg/a_m36(new_human), WEAR_IN_BACK)
+		if(18,19)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/shotgun/combat(new_human), WEAR_J_STORE)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/shotgun/buckshot(new_human), WEAR_IN_BACK)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/shotgun/buckshot(new_human), WEAR_IN_BACK)
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/handful/shotgun/buckshot(new_human), WEAR_IN_BACK)
+
+/**
+ * Randomizes the primary weapon a survivor might find at the start of the outbreak in a gun cabinet.
+ * For the most part you will stil get a shotgun but there is an off chance you get something unique.
+ * If you don't like the weapon deal with it. Cursed ammo for shotguns is intentional for scarcity reasons.
+ * Some weapons may not appear at all in a colony so they will need the extra ammo.
+ * MERC, and DB needed a handfull of shells to compete with the normal CMB.
+ */
+/datum/equipment_preset/proc/add_survivor_weapon_civilian(mob/living/carbon/human/new_human)
+	// a high chance to just not have a primary weapon
+	if(prob(60))
+		return
+	var/random_weapon = rand(0,4)
+	switch(random_weapon)
+		if(0)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/boltaction(new_human), WEAR_L_HAND)
+			new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/boltaction(new_human), WEAR_WAIST)
+		if(1)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/smg/uzi(new_human), WEAR_L_HAND)
+			new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/uzi(new_human), WEAR_WAIST)
+		if(2)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/shotgun/pump/dual_tube/cmb(new_human), WEAR_L_HAND)
+			new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/shotgun_ammo, WEAR_WAIST)
+		if(3)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/ar10(new_human), WEAR_L_HAND)
+			new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/ar10(new_human), WEAR_WAIST)
+		if(4)
+			new_human.equip_to_slot_or_del(new /obj/item/weapon/gun/rifle/w_ek_17(new_human), WEAR_L_HAND)
+			new_human.equip_to_slot_or_del(new /obj/item/storage/belt/marine/wy/generic/w_ek_17(new_human), WEAR_WAIST)
+
+/datum/equipment_preset/proc/add_survivor_rare_item(mob/living/carbon/human/new_human)
+	var/random_rare_item = rand(1,444)
+	switch(random_rare_item)
+		if(1 to 4) // 2%
+			new_human.equip_to_slot_or_del(new /obj/item/device/motiondetector/m717(new_human), WEAR_IN_BACK)
+		if(5 to 8) // 2%
+			new_human.equip_to_slot_or_del(new /obj/item/device/defibrillator/compact(new_human), WEAR_IN_BACK)
+		if(9 to 16) // 4%
+			new_human.equip_to_slot_or_del(new /obj/item/ammo_magazine/flamer_tank/survivor(new_human), WEAR_IN_BACK)
+		if(17 to 26) // 5%
+			new_human.equip_to_slot_or_del(new /obj/item/storage/box/packet/high_explosive(new_human), WEAR_IN_BACK)
+		if(27 to 38) // 6%
+			new_human.equip_to_slot_or_del(new /obj/item/stack/medical/advanced/bruise_pack/upgraded(new_human), WEAR_IN_BACK)
+		if(39 to 54) // 8%
+			new_human.equip_to_slot_or_del(new /obj/item/stack/medical/advanced/ointment/upgraded(new_human), WEAR_IN_BACK)
+		if(55 to 74) // 10%
+			new_human.equip_to_slot_or_del(new /obj/item/storage/box/attachments(new_human), WEAR_IN_BACK)
+		if(75 to 104) // 15%
+			new_human.equip_to_slot_or_del(new /obj/item/storage/pouch/firstaid/ert(new_human), WEAR_R_STORE)
+		if(105 to 144) // 20%
+			new_human.equip_to_slot_or_del(new /obj/item/explosive/grenade/high_explosive/m15(new_human), WEAR_IN_BACK)
+		if(145 to 194) // 25%
+			new_human.equip_to_slot_or_del(new /obj/item/cell/hyper(new_human), WEAR_IN_BACK)
+		if(195 to 254) // 30%
+			new_human.equip_to_slot_or_del(new /obj/item/attachable/flashlight/grip(new_human), WEAR_IN_BACK)
+		if(255 to 324) // 35%
+			new_human.equip_to_slot_or_del(new /obj/item/stack/sheet/metal/medium_stack (new_human), WEAR_IN_BACK)
+		if(325 to 444) // 45%
+			new_human.equip_to_slot_or_del(new /obj/item/device/binoculars/civ(new_human), WEAR_IN_BACK)

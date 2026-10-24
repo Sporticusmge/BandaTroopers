@@ -145,3 +145,7 @@
 	name = "Type 200/FCV-C Command Light APC"
 	interior_id = "twe_command_apc"
 // SS220 EDIT - END
+
+/datum/map_template/interior/rt01
+	name = "RT01"
+	interior_id = "rt01"

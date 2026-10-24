@@ -165,7 +165,7 @@ GLOBAL_LIST_INIT(bgstate_options, list(
 	var/skin_color = "Pale 2" // Skin color
 	var/body_size = "Average" // Body Size
 	var/body_type = "Lean" // Body Type
-	var/blood_type = "O+" //Blood Type
+	var/blood_type = "O+"
 	var/language = "None" //Secondary language
 	var/list/gear //Custom/fluff item loadout.
 	var/preferred_squad = "None"
@@ -2358,7 +2358,7 @@ GLOBAL_LIST_INIT(bgstate_options, list(
 	character.body_type = body_type
 	character.body_size = body_size
 	character.blood_type = blood_type
-	
+
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
 	character.b_eyes = b_eyes

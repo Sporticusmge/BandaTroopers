@@ -154,6 +154,10 @@
 	on = TRUE
 
 /obj/item/device/flashlight/pen
+	item_icons = list(
+		WEAR_L_HAND = 'icons/mob/humans/onmob/items_lefthand_1.dmi',
+		WEAR_R_HAND = 'icons/mob/humans/onmob/items_righthand_1.dmi',
+	)
 	name = "penlight"
 	desc = "A pen-sized light, used by medical staff to check the condition of eyes, brain, and the overall awareness of patients."
 	icon_state = "penlight"
@@ -737,3 +741,20 @@
 	w_class = SIZE_MEDIUM
 	flags_equip_slot = null
 	raillight_compatible = 0
+/obj/item/device/flashlight/lamp/tripod/off
+	on = 0
+
+/obj/item/device/flashlight/lamp/tripod/grey/off
+	on = 0
+
+/obj/item/device/flashlight/lantern/alt
+	name = "lantern"
+	icon_state = "tactical_lantern"
+	item_state = "tactical_lantern"
+	item_icons = list(
+		WEAR_L_HAND = 'icons/mob/humans/onmob/items_lefthand_1.dmi',
+		WEAR_R_HAND = 'icons/mob/humans/onmob/items_righthand_1.dmi',
+	)
+	desc = "An expensive looking lantern."
+	light_range = 7 // luminosity when on
+	light_color = "#71cfff"

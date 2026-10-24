@@ -1149,6 +1149,18 @@ export const RADIO_PREFIXES = {
     id: 'comms',
     label: 'Intercom',
   },
+	':5 ': {
+		id: 'lasalle',
+		label: 'Lasalle',
+	},
+	'.5 ': {
+		id: 'lasalle',
+		label: 'Lasalle',
+	},
+	'#5 ': {
+		id: 'lasalle',
+		label: 'Lasalle',
+	},
 } as const;
 
 export const LANGUAGE_PREFIXES = {

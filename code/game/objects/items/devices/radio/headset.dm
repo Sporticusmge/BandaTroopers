@@ -1598,3 +1598,16 @@
 	initial_keys = list(/obj/item/device/encryptionkey/fil)
 	has_hud = TRUE
 	hud_type = list(MOB_HUD_FACTION_FIL)
+/obj/item/device/radio/headset/distress/lasalle_bionational
+	name = "LB corporate headset"
+	desc = "A headset commonly worn by Lasalle Bionational corporate personnel."
+	icon_state = "generic_headset"
+	frequency = LB_FREQ
+	initial_keys = list(/obj/item/device/encryptionkey/colony, /obj/item/device/encryptionkey/lasalle_bionational)
+	has_hud = TRUE
+	hud_type = MOB_HUD_FACTION_LB
+
+/obj/item/device/radio/headset/distress/lasalle_bionational/lb_merc
+	name = "HIG tactical headset"
+	desc = "A secure tactical headset issued to Lasalle Bionational - Hazard Intervention Group operatives."
+	icon_state = "mcom_headset"

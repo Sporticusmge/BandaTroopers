@@ -107,14 +107,12 @@
 	stoplag(6 DECISECONDS)
 	overlays -= swole_overlay
 
-// Treadmill
-
 /obj/structure/machinery/treadmill
 	icon = 'icons/obj/structures/treadmill.dmi'
 	icon_state = "back_off"
 	name = "treadmill"
 	desc = "A treadmill used for cardio related exercise."
-	layer = CONVEYOR_LAYER // so they appear under stuff
+	layer = CONVEYOR_LAYER
 	anchored = TRUE
 	idle_power_usage = 10
 	active_power_usage = 50
@@ -175,7 +173,7 @@
 	for(var/atom/movable/object in loc.contents - src)
 		if(!object.anchored)
 			if(object.loc == src.loc)
-				INVOKE_NEXT_TICK(src, PROC_REF(move_thing), object) // to prevent instant movement
+				INVOKE_NEXT_TICK(src, PROC_REF(move_thing), object)
 				items_moved++
 		if(items_moved >= 10)
 			break

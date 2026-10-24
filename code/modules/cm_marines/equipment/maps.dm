@@ -188,18 +188,18 @@
 	html_link = ""
 	color = "cyan"
 
-/obj/item/map/oil_depot
-	name = "\improper Oil Depot Map"
-	desc = "A satellite printout of the oil depots on planet."
-	html_link = ""
-	color = "#e88a10"
-
 /obj/item/map/almayer/infested
 	name = "\improper USS Almayer map"
 	desc = "A labeled blueprint of the USS Almayer"
 	html_link = "images/5/54/USS_Almayer.png"
 	color = "cyan"
 // SS220 EDIT - END
+
+/obj/item/map/fire_colony
+	name = "\improper LV-376 map"
+	desc = "A map of the Lasalle Bionational owned colony on LV-376, commonly known as 'Charon's Crucible'."
+	html_link = "images/1/18/Map_icecolony.png"
+	color = "#d2440c"
 
 GLOBAL_LIST_INIT_TYPED(map_type_list, /obj/item/map, setup_all_maps())
 
@@ -223,6 +223,7 @@ GLOBAL_LIST_INIT_TYPED(map_type_list, /obj/item/map, setup_all_maps())
 		MAP_LV522_CHANCES_CLAIM_FORECON = new /obj/item/map/lv522_map(),
 		MAP_LV759_HYBRISA_PROSPERA = new /obj/item/map/lv759_map(),
 		MAP_LV759_HYBRISA_PROSPERA_REPAIRED = new /obj/item/map/lv759_map(),
+		MAP_FIRE_COLONY = new /obj/item/map/fire_colony(),
 		MAP_NEW_VARADERO = new /obj/item/map/new_varadero(),
 		MAP_NEW_VARADERO_REPAIRED = new /obj/item/map/new_varadero(),
 		MAP_DERELICT_ALMAYER = new /obj/item/map/almayer(),
@@ -245,7 +246,6 @@ GLOBAL_LIST_INIT_TYPED(map_type_list, /obj/item/map, setup_all_maps())
 		MAP_LV295_FEATURELESS_ARCTIC = new /obj/item/map/lv522_map(),
 		// SS220 EDIT - START
 		MAP_LV_671 = new /obj/item/map/lv_671(),
-		MAP_OIL_DEPOT = new /obj/item/map/oil_depot(),
 		MAP_DERELICT_ALMAYER_INFESTED = new /obj/item/map/almayer/infested(),
 		MAP_ONI_SHIELD_BASE = new /obj/item/map/lv522_map(),
 		MAP_VALOROUS_CHANT = new /obj/item/map/lv522_map(),

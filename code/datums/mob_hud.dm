@@ -29,6 +29,7 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/mob_hud, flatten_numeric_alist(alist(
 	MOB_HUD_FACTION_UNSC = new /datum/mob_hud/faction/unsc(), // SS220 EDIT: HALO faction HUD
 	MOB_HUD_FACTION_COVENANT = new /datum/mob_hud/faction/covenant(), // SS220 EDIT: HALO Covenant faction HUD
 	MOB_HUD_VISR = new /datum/mob_hud/visr(), // SS220 EDIT: HALO VISR HUD
+	MOB_HUD_FACTION_LB = new /datum/mob_hud/faction/lasalle_bionational(),
 	)))
 
 /datum/mob_hud
@@ -245,6 +246,9 @@ GLOBAL_LIST_INIT_TYPED(huds, /datum/mob_hud, flatten_numeric_alist(alist(
 
 /datum/mob_hud/faction/fil
 	faction_to_check = FACTION_FIL
+
+/datum/mob_hud/faction/lasalle_bionational
+	faction_to_check = FACTION_LASALLE_BIONATIONAL
 
 /datum/mob_hud/faction/unsc
 	faction_to_check = FACTION_UNSC

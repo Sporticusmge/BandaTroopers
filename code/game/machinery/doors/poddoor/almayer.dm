@@ -61,3 +61,17 @@
 /obj/structure/machinery/door/poddoor/almayer/planet_side_blastdoor
 	density = TRUE
 	opacity = TRUE
+
+/obj/structure/machinery/door/poddoor/almayer/dark/closed
+	name = "\improper Lockdown"
+	icon_state = "darkdoor1"
+	base_icon_state = "darkdoor"
+	density = TRUE
+	opacity = TRUE
+
+/obj/structure/machinery/door/poddoor/almayer/dark/open
+	name = "\improper Lockdown"
+	icon_state = "darkdoor1"
+	base_icon_state = "darkdoor"
+	density = FALSE
+	opacity = FALSE

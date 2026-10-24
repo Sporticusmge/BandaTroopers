@@ -44,6 +44,7 @@ GLOBAL_LIST_INIT(all_minimap_flags, bitfield2list(MINIMAP_FLAG_ALL))
 #define MINIMAP_MARS_DIRT "#aa5f44cc"
 #define MINIMAP_ICE "#93cae0b0"
 #define MINIMAP_WATER "#94b0d59c"
+#define MINIMAP_BLACK "#111111d0"
 
 //Area colors
 #define MINIMAP_AREA_ENGI "#c19504e7"
@@ -57,6 +58,8 @@ GLOBAL_LIST_INIT(all_minimap_flags, bitfield2list(MINIMAP_FLAG_ALL))
 #define MINIMAP_AREA_COMMAND "#2d3fa2ee"
 #define MINIMAP_AREA_COMMAND_CAVE "#132242ee"
 #define MINIMAP_AREA_CAVES "#3f3c3cef"
+#define MINIMAP_AREA_CAVES_DEEP "#272525ef"
+#define MINIMAP_AREA_MINING "#4d3619e7"
 #define MINIMAP_AREA_JUNGLE "#2b5b2bee"
 #define MINIMAP_AREA_COLONY "#6c6767d8"
 #define MINIMAP_AREA_LZ "#ebe5e5e3"

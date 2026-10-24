@@ -146,7 +146,7 @@
 	set category = "Imaginary Friend"
 	set name = "Toggle HUD"
 
-	var/hud_choice = tgui_input_list(usr, "Choose a HUD to toggle", "Toggle HUD prefs", list("Medical HUD", "Security HUD", "Squad HUD", "Xeno Status HUD", "Faction UPP HUD", "Faction Wey-Yu HUD", "Faction RESS HUD", "Faction CLF HUD"))
+	var/hud_choice = tgui_input_list(usr, "Choose a HUD to toggle", "Toggle HUD prefs", list("Medical HUD", "Security HUD", "Squad HUD", "Xeno Status HUD", "Faction UPP HUD", "Faction Wey-Yu HUD", "Faction RESS HUD", "Faction CLF HUD", "Faction Lasalle Bionational HUD"))
 	var/datum/mob_hud/hud
 	switch(hud_choice)
 		if("Medical HUD")
@@ -167,6 +167,8 @@
 			hud = GLOB.huds[MOB_HUD_FACTION_CLF]
 		if("Faction FIL HUD")
 			hud = GLOB.huds[MOB_HUD_FACTION_FIL]
+		if("Faction Lasalle Bionational HUD")
+			hud = GLOB.huds[MOB_HUD_FACTION_LB]
 
 	if(hud_choice in current_huds)
 		hud.remove_hud_from(src, src)
