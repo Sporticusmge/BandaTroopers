@@ -933,6 +933,16 @@
 /turf/open/floor/almayer/tcomms
 	icon_state = "tcomms"
 
+/turf/open/floor/almayer/tcomms/glowing
+	icon_state = "tcomms"
+	light_color = "#2a9abf"
+	light_range = 3
+
+/turf/open/floor/almayer/tcomms/glowing/Initialize(mapload, ...)
+	. = ..()
+	set_light_on(TRUE)
+
+
 /turf/open/floor/almayer/test_floor4
 	icon_state = "test_floor4"
 

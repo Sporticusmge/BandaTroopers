@@ -1054,8 +1054,6 @@
 /obj/structure/platform_decoration/stone/runed_sandstone/west
 	dir = WEST
 
-// Simple metal post
-
 /obj/structure/platform_decoration/metal/post
 	name = "metal post"
 	desc = "A simple metal post."

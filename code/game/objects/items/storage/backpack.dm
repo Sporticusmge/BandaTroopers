@@ -544,6 +544,7 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 	flags_item = ITEM_OVERRIDE_NORTHFACE
 
 	var/phone_category = PHONE_MARINE
+	var/phone_icon
 	var/list/networks_receive = list(FACTION_MARINE)
 	var/list/networks_transmit = list(FACTION_MARINE)
 
@@ -552,7 +553,7 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 /obj/item/storage/backpack/marine/satchel/rto/Initialize()
 	. = ..()
 
-	AddComponent(/datum/component/phone, phone_category = phone_category, networks_receive = networks_receive, networks_transmit = networks_transmit, overlay_interactable = TRUE)
+	AddComponent(/datum/component/phone, phone_category = phone_category, phone_icon = phone_icon, networks_receive = networks_receive, networks_transmit = networks_transmit, overlay_interactable = TRUE)
 	RegisterSignal(src, COMSIG_ATOM_PHONE_PICKED_UP, PROC_REF(phone_picked_up))
 	RegisterSignal(src, COMSIG_ATOM_PHONE_HUNG_UP, PROC_REF(phone_hung_up))
 	RegisterSignal(src, COMSIG_ATOM_PHONE_RINGING, PROC_REF(phone_ringing))
@@ -1377,10 +1378,6 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 	name = "\improper Army expedition chestrig"
 	desc = "A heavy-duty IMP based chestrig, can quickly be accessed with only one hand. Usually issued to intelligence officers."
 
-//==========================// IMP BACKPACK \\================================\\
-//=======================================================================\\
-
-// Define slots for IMP backpack attachments (if not already defined globally)
 #ifndef IMP_SLOT_ETOOL
 #define IMP_SLOT_ETOOL   "imp_etool"
 #define IMP_SLOT_BEDROLL "imp_bedroll"
@@ -1396,13 +1393,9 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 	has_gamemode_skin = FALSE
 	xeno_types = null
 
-	// List of allowed IMP slots
 	var/list/valid_imp_slots = list(IMP_SLOT_ETOOL, IMP_SLOT_BEDROLL, IMP_SLOT_SADAR, IMP_SLOT_POUCH)
-	// Restricted slots (only one per slot)
 	var/list/restricted_imp_slots = list(IMP_SLOT_ETOOL, IMP_SLOT_BEDROLL, IMP_SLOT_SADAR)
-	// List of attached items (stored in nullspace)
 	var/list/accessories = list()
-	// Max pouches
 	var/max_pouches = 2
 
 /obj/item/storage/backpack/marine/imp/Destroy()
@@ -1411,7 +1404,6 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 	accessories.Cut()
 	return ..()
 
-// Helper: determine IMP slot from item type
 /obj/item/storage/backpack/marine/imp/proc/get_imp_slot(obj/item/I)
 	if(istype(I, /obj/item/tool/shovel/etool))
 		return IMP_SLOT_ETOOL
@@ -1423,7 +1415,6 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 		return IMP_SLOT_POUCH
 	return null
 
-// Check if an item can be attached
 /obj/item/storage/backpack/marine/imp/proc/can_attach_accessory(obj/item/I)
 	var/slot = get_imp_slot(I)
 	if(!slot)
@@ -1432,13 +1423,11 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 	if(!(slot in valid_imp_slots))
 		return FALSE
 
-	// Check restricted slots (only one)
 	if(slot in restricted_imp_slots)
 		for(var/obj/item/AC in accessories)
 			if(get_imp_slot(AC) == slot)
 				return FALSE
 
-	// Special pouch limit
 	if(slot == IMP_SLOT_POUCH)
 		var/pouch_count = 0
 		for(var/obj/item/AC in accessories)
@@ -1447,22 +1436,19 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 		if(pouch_count >= max_pouches)
 			return FALSE
 
-	// Extra checks for folded state
 	if(istype(I, /obj/item/tool/shovel/etool))
 		var/obj/item/tool/shovel/etool/et = I
 		if(!et.folded)
 			return FALSE
 	if(istype(I, /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable))
-		return FALSE  // unfolded SADAR not allowed
+		return FALSE
 
 	return TRUE
 
-// Attach accessory (moves item directly to nullspace, bypassing the floor)
 /obj/item/storage/backpack/marine/imp/proc/attach_accessory(mob/user, obj/item/I, silent = FALSE)
 	if(!can_attach_accessory(I))
 		return FALSE
 
-	// Move item directly from hand to nullspace, without dropping on ground
 	if(!user.drop_inv_item_to_loc(I, null))
 		to_chat(user, SPAN_WARNING("You cannot detach [I] from your hand."))
 		return FALSE
@@ -1493,7 +1479,6 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 		verbs += /obj/item/storage/backpack/marine/imp/proc/remove_accessory_verb
 	return TRUE
 
-// Remove accessory (brings item back from nullspace)
 /obj/item/storage/backpack/marine/imp/proc/remove_accessory(mob/user, obj/item/I)
 	if(!(I in accessories))
 		return FALSE
@@ -1510,7 +1495,6 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 		verbs -= /obj/item/storage/backpack/marine/imp/proc/remove_accessory_verb
 	return TRUE
 
-// Radial menu for removal
 /obj/item/storage/backpack/marine/imp/proc/pick_accessory_to_remove(mob/user)
 	if(!length(accessories))
 		return null
@@ -1567,7 +1551,6 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 
 	return choice_to_item[choice]
 
-// Verb for removal
 /obj/item/storage/backpack/marine/imp/proc/remove_accessory_verb()
 	set name = "Remove Accessory"
 	set category = "Object"
@@ -1584,7 +1567,6 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 	if(to_remove)
 		remove_accessory(usr, to_remove)
 
-// Attackby: attach item, otherwise try to put inside
 /obj/item/storage/backpack/marine/imp/attackby(obj/item/I, mob/user)
 	if(istype(I, /obj/item/weapon/gun/launcher/rocket/anti_tank/disposable))
 		to_chat(user, SPAN_WARNING("You'll need to fold the [I] before attaching it to the [src]."))
@@ -1594,10 +1576,8 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 		attach_accessory(user, I)
 		return TRUE
 
-	// For non-attachable items, let parent handle storage insertion
 	return ..()
 
-// Attack self (click in hand) - show removal menu if accessories exist
 /obj/item/storage/backpack/marine/imp/attack_self(mob/user)
 	if(!user.can_use_hands() || user.is_mob_incapacitated())
 		return
@@ -1608,7 +1588,6 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 	else
 		return ..()
 
-// Update icon overlays
 /obj/item/storage/backpack/marine/imp/update_icon()
 	..()
 	var/pouch_count = 0
@@ -1626,7 +1605,6 @@ GLOBAL_LIST_EMPTY_TYPED(radio_packs, /obj/item/storage/backpack/marine/satchel/r
 				var/icon_state_ov = (pouch_count == 1) ? "+imp_leftpouch" : "+imp_rightpouch"
 				overlays += image(icon = 'icons/obj/items/clothing/backpacks.dmi', icon_state = icon_state_ov)
 
-// Examine
 /obj/item/storage/backpack/marine/imp/examine(mob/user)
 	..()
 	if(!length(accessories))

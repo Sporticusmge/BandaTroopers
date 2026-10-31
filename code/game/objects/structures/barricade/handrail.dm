@@ -297,5 +297,5 @@
 	name = "\improper ring ropes"
 	icon_state = "handrail_boxing"
 	destroyed_stack_amount = 0
-	health = 200 // So you don't accidently just break it by hitting it, as it can't be repaired.
+	health = 200
 	maxhealth = 200

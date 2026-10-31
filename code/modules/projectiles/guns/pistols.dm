@@ -311,6 +311,9 @@
 	recoil_unwielded = RECOIL_AMOUNT_TIER_3
 	damage_mult = BASE_BULLET_DAMAGE_MULT - BULLET_DAMAGE_MULT_TIER_3
 
+/obj/item/weapon/gun/pistol/highpower/automag/unloaded
+	current_mag = null
+
 /obj/item/weapon/gun/pistol/highpower/automag/tactical
 	name = "\improper HG 44 'Automag' pistol"
 	desc = "A semi-automatic Henjin-Garcia design chambered in .44 Magnum that was largely discontinued in favour of the HG 45 configuration chambered in .45 ACP."
