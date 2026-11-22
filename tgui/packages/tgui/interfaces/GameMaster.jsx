@@ -24,12 +24,81 @@ export const GameMaster = (props, context) => {
 
           <GameMasterObjectivePanel />
 
+          <GameMasterMissionHubPanel />
+
           <GameMasterCommunicationPanel />
 
           <GameMasterRecordPanel />
         </Stack>
       </Window.Content>
     </Window>
+  );
+};
+
+export const GameMasterMissionHubPanel = (props, context) => {
+  const { data, act } = useBackend();
+
+  return (
+    <Section title="Штаб операций и снабжения">
+      <Stack vertical>
+        <Stack.Item>
+          Текущая операция: {data.current_hub_mission || 'не выбрана'}
+        </Stack.Item>
+        <Stack.Item>
+          <Box color="label" mb={0.5}>Торговец: квартирмейстер</Box>
+          <Button onClick={() => act('place_hub_trader')}>
+            Разместить торговца
+          </Button>
+          <Button onClick={() => act('place_hub_stash')}>
+            Разместить общий склад группы
+          </Button>
+          <Button onClick={() => act('place_hub_mission_console')}>
+            Разместить консоль операций
+          </Button>
+          <Button onClick={() => act('queue_hub_mission')}>
+            Добавить операцию
+          </Button>
+        </Stack.Item>
+        <Stack.Item>
+          <Box color="label">
+            Нажмите кнопку размещения, затем выберите клетку на карте.
+          </Box>
+        </Stack.Item>
+        {(data.mission_queue || []).map((mission_id, index) => (
+          <Stack.Item key={`${mission_id}-${index}`}>
+            {index + 1}. {mission_id}
+            <Button
+              color="bad"
+              onClick={() => act('remove_hub_mission', { mission_id })}
+            >
+              Удалить
+            </Button>
+          </Stack.Item>
+        ))}
+        <Stack.Item mt={1}>
+          <Section title="Общий склад группы">
+            {(data.group_stash_stock || []).map((entry) => (
+              <Stack key={entry.type} align="center">
+                <Stack.Item grow>{entry.name}</Stack.Item>
+                <Stack.Item>
+                  Доступно: {entry.count}{entry.total_worth ? ` · $${entry.total_worth}` : ''}
+                </Stack.Item>
+                <Stack.Item>
+                  <Button
+                    color="good"
+                    onClick={() => act('issue_group_stash_item', { item_type: entry.type })}>
+                    Выдать группе
+                  </Button>
+                </Stack.Item>
+              </Stack>
+            ))}
+            {!data.group_stash_stock?.length && (
+              <Box color="label">Общий склад пуст.</Box>
+            )}
+          </Section>
+        </Stack.Item>
+      </Stack>
+    </Section>
   );
 };
 

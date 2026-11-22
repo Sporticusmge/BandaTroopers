@@ -1,5 +1,6 @@
 #include "_game_master.dm"
 
 #include "code/game_master_phone.dm"
+#include "code/mission_hub.dm"
 #include "code/screen_alert/screen_alert_datum.dm"
 #include "code/screen_alert/screen_alert_client.dm"
